@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+struct MP3 { 
+   char* artist_name;
+   char* title;
+   char* year;
+   int run_time;
+
+	
+   struct MP3 *next;
+   struct MP3 *prev;
+};
+
+
+
+void add_list(struct MP3** mp3List,char* artist, char* songTitle,char* songMade, int run){
+    struct MP3* new_node = (struct MP3*)malloc(sizeof(struct MP3)); 
+
+    struct MP3* last = *mp3List;
+
+    new_node->artist_name = artist; 
+    new_node->title = songTitle; 
+    new_node->year = songMade; 
+    new_node->run_time = run; 
+
+    new_node->next = NULL; 
+   
+if (*mp3List == NULL) { 
+        new_node->prev = NULL; 
+        *mp3List = new_node; 
+        return; 
+    }
+     while (last->next != NULL) {
+      last = last->next;
+      last->next = new_node; 
+      new_node = last;
+}
+}
+
+//void delete_list(struct MP3** mp3_list, struct MP3* node_delete){
+	
+//} 
