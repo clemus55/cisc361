@@ -6,3 +6,5 @@ MP3.o: MP3.c MP3.h
 	gcc -c MP3.c -o MP3.o
 clean:
 	rm *.o MP3
+run: MP3.h MP3.c
+	./MP3
